@@ -1,0 +1,15 @@
+C:\Test\trunk\user\LongNT62\EF\ASM\WebBlogAPI\WebBlog.Business\bin\Debug\net5.0\WebBlog.Business.deps.json
+C:\Test\trunk\user\LongNT62\EF\ASM\WebBlogAPI\WebBlog.Business\bin\Debug\net5.0\WebBlog.Business.dll
+C:\Test\trunk\user\LongNT62\EF\ASM\WebBlogAPI\WebBlog.Business\bin\Debug\net5.0\ref\WebBlog.Business.dll
+C:\Test\trunk\user\LongNT62\EF\ASM\WebBlogAPI\WebBlog.Business\bin\Debug\net5.0\WebBlog.Business.pdb
+C:\Test\trunk\user\LongNT62\EF\ASM\WebBlogAPI\WebBlog.Business\bin\Debug\net5.0\WebBlog.Data.dll
+C:\Test\trunk\user\LongNT62\EF\ASM\WebBlogAPI\WebBlog.Business\bin\Debug\net5.0\WebBlog.Data.pdb
+C:\Test\trunk\user\LongNT62\EF\ASM\WebBlogAPI\WebBlog.Business\obj\Debug\net5.0\WebBlog.Business.csproj.AssemblyReference.cache
+C:\Test\trunk\user\LongNT62\EF\ASM\WebBlogAPI\WebBlog.Business\obj\Debug\net5.0\WebBlog.Business.GeneratedMSBuildEditorConfig.editorconfig
+C:\Test\trunk\user\LongNT62\EF\ASM\WebBlogAPI\WebBlog.Business\obj\Debug\net5.0\WebBlog.Business.AssemblyInfoInputs.cache
+C:\Test\trunk\user\LongNT62\EF\ASM\WebBlogAPI\WebBlog.Business\obj\Debug\net5.0\WebBlog.Business.AssemblyInfo.cs
+C:\Test\trunk\user\LongNT62\EF\ASM\WebBlogAPI\WebBlog.Business\obj\Debug\net5.0\WebBlog.Business.csproj.CoreCompileInputs.cache
+C:\Test\trunk\user\LongNT62\EF\ASM\WebBlogAPI\WebBlog.Business\obj\Debug\net5.0\WebBlog.Business.csproj.CopyComplete
+C:\Test\trunk\user\LongNT62\EF\ASM\WebBlogAPI\WebBlog.Business\obj\Debug\net5.0\WebBlog.Business.dll
+C:\Test\trunk\user\LongNT62\EF\ASM\WebBlogAPI\WebBlog.Business\obj\Debug\net5.0\ref\WebBlog.Business.dll
+C:\Test\trunk\user\LongNT62\EF\ASM\WebBlogAPI\WebBlog.Business\obj\Debug\net5.0\WebBlog.Business.pdb

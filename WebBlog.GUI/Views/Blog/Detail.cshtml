@@ -1,0 +1,260 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/css/comment.css" rel="stylesheet" />
+<section class="blog-posts grid-system">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="all-blog-posts">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="blog-post" id="detail-post">
+                                @*here*@
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="comments" id="comments-area">
+                                <div class="comments-details">
+                                    <span class="total-comments comments-sort"></span>
+                                </div>
+                                <div class="comment-box add-comment">
+                                    <span class="commenter-pic">
+                                        <i class="fas fa-user"></i>
+                                    </span>
+                                    <span class="commenter-name">
+                                        <input type="text" id="contentComment" placeholder="Add comment..." name="content" style="background-color: #f5f5f5;margin: 0px 25px;width: 40em;height: auto;" />
+                                        <button type="submit" class="btn btn-default addComment" onclick="addComment()">Comment</button>
+                                        <button type="cancel" class="btn btn-default">Cancel</button>
+
+                                    </span>
+                                </div>
+                                @* comment *@
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="sidebar">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="sidebar-item search">
+                                <form id="search_form" name="gs" method="GET" action="#">
+                                    <input type="text" name="q" class="searchText" placeholder="type to search..." autocomplete="on">
+                                </form>
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="sidebar-item recent-posts">
+                                <div class="sidebar-heading">
+                                    <h2>Recent Posts</h2>
+                                </div>
+                                <div class="content">
+                                    <ul>
+                                        <li>
+                                            <a href="post-details.html">
+                                                <h5>Vestibulum id turpis porttitor sapien facilisis scelerisque</h5>
+                                                <span>May 31, 2020</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="post-details.html">
+                                                <h5>Suspendisse et metus nec libero ultrices varius eget in risus</h5>
+                                                <span>May 28, 2020</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="post-details.html">
+                                                <h5>Swag hella echo park leggings, shaman cornhole ethical coloring</h5>
+                                                <span>May 14, 2020</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="sidebar-item categories">
+                                <div class="sidebar-heading">
+                                    <h2>Categories</h2>
+                                </div>
+                                <div class="content">
+                                    <ul>
+                                        <li><a href="#">- Nature Lifestyle</a></li>
+                                        <li><a href="#">- Awesome Layouts</a></li>
+                                        <li><a href="#">- Creative Ideas</a></li>
+                                        <li><a href="#">- Responsive Templates</a></li>
+                                        <li><a href="#">- HTML5 / CSS3 Templates</a></li>
+                                        <li><a href="#">- Creative &amp; Unique</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="sidebar-item tags">
+                                <div class="sidebar-heading">
+                                    <h2>Tag Clouds</h2>
+                                </div>
+                                <div class="content">
+                                    <ul>
+                                        <li><a href="#">Lifestyle</a></li>
+                                        <li><a href="#">Creative</a></li>
+                                        <li><a href="#">HTML5</a></li>
+                                        <li><a href="#">Inspiration</a></li>
+                                        <li><a href="#">Motivation</a></li>
+                                        <li><a href="#">PSD</a></li>
+                                        <li><a href="#">Responsive</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    let countComment = 0;
+    $.ajax({
+        url: 'https://localhost:44329/blog/detail/@ViewBag.Id',
+        type: 'GET',
+        success: function (data) {
+            countComment = data.postComments.length;
+            $('.total-comments.comments-sort').text(countComment + " comments")
+                $('#detail-post').append(
+                    `<div class="blog-thumb">
+                        <img src="`+data.image+`" alt="">
+                    </div>
+                    <div class="down-content">
+                        <span>Lifestyle</span>
+                        <h4>`+data.title+`</h4>
+                        <ul class="post-info">
+                            <li><a href="#">`+data.user.firstName+`</a></li>
+                            <li><a href="#">`+ data.createAt + `</a></li>
+                            <li><a href="#">`+ data.postComments.length +` Comments</a></li>
+                        </ul>
+                        <p>
+                            `+data.content+`
+                        </p>
+                        <div class="post-options">
+                            <div class="row">
+                                <div class="col-6">
+                                    <ul class="post-tags">
+                                        <li><i class="fa fa-tags"></i></li>
+                                        <li><a href="#">Best Templates</a>,</li>
+                                        <li><a href="#">TemplateMo</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-6">
+                                    <ul class="post-share">
+                                        <li><i class="fa fa-share-alt"></i></li>
+                                        <li><a href="#">Facebook</a>,</li>
+                                        <li><a href="#"> Twitter</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>`
+            );
+            $.each(data.postComments, function (key, valueComment) {
+                $('#comments-area').append(
+                    `<div class="comment-box" id="reply-area">
+                    <span class="commenter-pic">
+                        <i class="fas fa-user"></i>
+                    </span>
+                    <span class="commenter-name">
+                        <a href="#">`+ valueComment.user.firstName + `</a> <span class="comment-time">` + valueComment.createAt +`</span>
+                    </span>
+                    <p class="comment-txt more">`+ valueComment.content +`</p>
+                    <div class="comment-meta">
+                        <button class="comment-reply reply-popup" onclick="Reply()"><i class="fa fa-reply-all" aria-hidden="true"></i> Reply</button>
+                    </div>
+                    <div class="comment-box add-comment reply-box">
+                        <span class="commenter-pic">
+                            <i class="fas fa-user"></i>
+                        </span>
+                        <span class="commenter-name">
+                                <input type="text" placeholder="Add reply" name="content" id="replyComment" />
+                                <button type="submit" class="btn btn-default" onclick="addSubComment(`+ valueComment.id +`)">Reply</button>
+                                <button type="cancel" class="btn btn-default reply-popup">Cancel</button>
+                        </span>
+                    </div>
+                </div>`);
+                $.each(data.postComments, function (key, valueSubComment) {
+                    if (valueSubComment.parentId == valueComment.id) {
+                        $('#reply-area').append(
+                            `<div class="comment-box replied">
+                                <span class="commenter-pic">
+                                    <i class="fas fa-user"></i>
+                                </span>
+                                <span class="commenter-name">
+                                    <a href="#">`+ valueSubComment.user.firstName + `</a> <span class="comment-time">` + valueSubComment.createAt +`</span>
+                                </span>
+                                <p class="comment-txt more">`+ valueSubComment.content + `</p>
+                                <div class="comment-meta">
+                                    <button class="comment-reply" ><i class="fa fa-reply-all" aria-hidden="true"></i> Reply</button>
+                                </div>
+                            </div>`
+                        );
+                    }
+                });
+
+            });
+
+        },
+        error: function(xhr, textStatus, errorThrown) {
+            console.log('Error in Database');
+        }
+    });
+
+</script>
+<script>
+    function addComment() {
+        $.ajax({
+            url: "https://localhost:44329/blog/comment",
+            type: "post",
+            dataType: "json",
+            contentType:'application/json;charset=utf-8',
+            data: JSON.stringify({
+                "postId": @ViewBag.Id,
+                "content": $("#contentComment").val(),
+                "userId": 5
+            }),
+            success: function (data) {
+                location.reload(true);
+            },
+            error: function (xhr, textStatus, errorThrown) {
+                console.log('Error add comment');
+            }
+        });
+    }
+    function addSubComment(parentId) {
+        $.ajax({
+            url: "https://localhost:44329/blog/subcomment",
+            type: "post",
+            dataType: "json",
+            contentType:'application/json;charset=utf-8',
+            data: JSON.stringify({
+                "parentid": parentId,
+                "postId": @ViewBag.Id,
+                "content": $("#replyComment").val(),
+                "userId": 5
+            }),
+            success: function (data) {
+                location.reload(true);
+            },
+            error: function (xhr, textStatus, errorThrown) {
+                console.log('Error add comment');
+            }
+        });
+    }
+</script>
+
+<script>
+    // Reply box popup JS
+        function Reply() {
+            $(".reply-box").toggle();
+        };
+</script>
